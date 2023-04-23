@@ -1,6 +1,6 @@
 import { ethers } from "ethers";
 
-const faucetAbi = [[
+const faucetAbi = [
     {
       inputs: [
         {
@@ -146,7 +146,7 @@ const faucetAbi = [[
       stateMutability: "payable",
       type: "receive",
     }
-  ];
+  ]
 
 const faucetContract = (provider) => {
     return new ethers.Contract("0xe1C876118b47A7fe90755705B7A36eEaEC9AB0bb", faucetAbi, provider)
