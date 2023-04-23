@@ -145,7 +145,7 @@ const faucetAbi = [[
     {
       stateMutability: "payable",
       type: "receive",
-    },
+    }
   ];
 
 const faucetContract = (provider) => {
