@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import { ethers } from "ethers";
+import faucetContract from "./ethereum/facuet";
 
 function App() {
   const [walletAddress, setWalletAddress] = useState("");
