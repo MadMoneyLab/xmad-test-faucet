@@ -40,9 +40,16 @@ function App() {
   const getCurrentWalletConnected = async () => {
     if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
       try {
-        const accounts = await window.ethereum.request({
-          method: "eth_accounts",
-        });
+        /* get provider */
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        /* MetaMask is installed */
+        /* get accounts */
+      const accounts = await provider.send("eth_accounts", []);
+        /* get signer */
+        setSigner(provider.getSigner());
+        /* local contract instance */
+        setFcContract(faucetContract(provider));
+
         if (accounts.length > 0) {
           setWalletAddress(accounts[0]);
           console.log(accounts[0]);
