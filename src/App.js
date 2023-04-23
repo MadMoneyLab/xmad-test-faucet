@@ -45,16 +45,15 @@ function App() {
         /* MetaMask is installed */
         /* get accounts */
       const accounts = await provider.send("eth_accounts", []);
+        if (accounts.length > 0) {
         /* get signer */
         setSigner(provider.getSigner());
         /* local contract instance */
         setFcContract(faucetContract(provider));
-
-        if (accounts.length > 0) {
-          setWalletAddress(accounts[0]);
-          console.log(accounts[0]);
+        setWalletAddress(accounts[0]);
+        console.log(accounts[0]);
         } else {
-          console.log("Connect to MetaMask using the Connect button");
+        console.log("Connect to MetaMask using the Connect button");
         }
       } catch (err) {
         console.error(err.message);
