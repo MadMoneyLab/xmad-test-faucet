@@ -77,6 +77,16 @@ function App() {
     }
   };
 
+  const get xMAD = async () => {
+    try{
+      const fcContractWithSigner = fcContract.connect(signer);
+      const resp = await fcContractWithSigner.requestTokens();
+      console.log(resp);
+    } catch(err {
+      console.error(err.message);
+    }
+  };
+
   return (
     <div>
       <nav className="navbar">
