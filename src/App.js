@@ -20,7 +20,7 @@ function App() {
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         /* MetaMask is installed */
         /* get accounts */
-      const accounts = await provider.send("eth_requestAccounts", []);
+        const accounts = await provider.send("eth_requestAccounts", []);
         /* get signer */
         setSigner(provider.getSigner());
         /* local contract instance */
@@ -77,7 +77,7 @@ function App() {
     }
   };
 
-  const get xMAD = async () => {
+  const getxMAD = async () => {
     try{
       const fcContractWithSigner = fcContract.connect(signer);
       const resp = await fcContractWithSigner.requestTokens();
@@ -128,7 +128,10 @@ function App() {
                   />
                 </div>
                 <div className="column">
-                  <button className="button is-link is-medium">
+                  <button 
+                  className="button is-link is-medium"
+                  onClick={getxMAD}
+                  >
                     GET TOKENS
                   </button>
                 </div>
